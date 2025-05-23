@@ -35,11 +35,11 @@ export const Navbar = () => {
   }, [menuOpen]);
 
   return (
-    <nav className="fixed top-0 w-full z-40 bg-[#101828] shadow-lg">
+    <nav className="fixed top-0 w-full z-40 bg-[#0a0a0a] shadow-lg">
       <div className="mx-auto px-8">
         <div className="flex justify-between items-center h-16">
           <a href="#home" className="text-2xl font-bold text-white">
-            Portfolio
+            Rachna Dhoke
           </a>
           <div
             className="w-7 h-5 relative cursor-pointer z-40 md:hidden flex flex-col justify-between"
@@ -99,26 +99,12 @@ export const Navbar = () => {
 
           <div className="hidden md:block">
             <a
-              href="/RachnaCV.pdf"
-              className="bg-teal-500 hover:bg-teal-400 text-black py-2 px-4 rounded flex items-center"
+              href="/rachna-portfolio/RachnaCV.pdf"
+              className="bg-teal-500 hover:bg-teal-400 text-white py-2 px-4 rounded flex items-center"
               target="_blank"
               rel="noopener noreferrer"
             >
               View Resume
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5 ml-2"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                />
-              </svg>
             </a>
           </div>
 
@@ -185,27 +171,12 @@ export const Navbar = () => {
                 Contact me
               </a>
               <a
-                href="/RachnaCV.pdf"
-                className="bg-teal-500 hover:bg-teal-400 text-black py-2 px-4 rounded flex items-center mt-4"
+                href="/rachna-portfolio/RachnaCV.pdf"
+                className="bg-teal-500 hover:bg-teal-400 text-white py-2 px-4 rounded flex items-center mt-4"
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={() => setMenuOpen(false)}
               >
                 View Resume
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-5 w-5 ml-2"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"
-                  />
-                </svg>
               </a>
             </div>
           </div>

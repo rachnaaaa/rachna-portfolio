@@ -34,7 +34,7 @@ export const Project = () => {
     return (
         <div
             id="projects"
-            className="relative flex flex-col items-center justify-center overflow-hidden bg-gray-900 py-20"
+            className="relative flex flex-col items-center justify-center overflow-hidden bg-black py-20"
         >
             <div className="relative z-10 text-center px-6 max-w-6xl">
                 <h3 className="text-sm uppercase tracking-widest text-gray-200 mb-2">Projects</h3>
@@ -46,7 +46,7 @@ export const Project = () => {
                     {projects.map((project, index) => (
                         <div
                             key={index}
-                            className={`bg-gray-800 p-6 rounded-lg shadow-lg cursor-pointer transition-all duration-300 border ${
+                            className={`bg-[#262626] p-6 rounded-lg shadow-lg cursor-pointer transition-all duration-300 border ${
                                 activeCard === index
                                     ? "border-teal-400"
                                     : "border-transparent hover:border-teal-400 hover:shadow-teal-500/30 transition-all duration-300 cursor-pointer"
