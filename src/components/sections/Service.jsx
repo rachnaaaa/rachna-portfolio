@@ -1,36 +1,97 @@
+import { useState } from "react";
+
 export const Service = () => {
+    const [activeCard, setActiveCard] = useState(0);
+
+    const services = [
+        {
+            icon: (
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                </svg>
+            ),
+            title: "Backend Development",
+            desc: "Architecting scalable backend solutions using Node.js, Express.js, and RESTful APIs. Proficient in integrating microservices and optimizing API performance using multithreading and asynchronous operations. Skilled in MongoDB, MySQL, and headless CMS integrations (e.g., Kontent AI, Delivers AI)."
+        },
+        {
+            icon: (
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M7 21a4 4 0 01-4-4V5a2 2 0 012-2h4a2 2 0 012 2v12a4 4 0 01-4 4zM21 5a2 2 0 00-2-2h-4a2 2 0 00-2 2v12a4 4 0 004 4h4a4 4 0 004-4V5z" />
+                </svg>
+            ),
+            title: "Frontend Development",
+            desc: "Building responsive and modular user interfaces using Angular (13–16) and React.js. Leveraging NgRx state management, Micro Frontend Architecture, and facade patterns to develop scalable applications. Proficient in HTML5, CSS3, Tailwind, Bootstrap, and performance-optimized UI implementations."
+        },
+        {
+            icon: (
+                <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15.232 5.232l3.536 3.536m-2.036-5.035a2.5 2.5 0 113.536 3.536L6.5 21.01H3v-3.572L16.732 3.732z" />
+                </svg>
+            ),
+            title: "UI/UX & Design Integration", 
+            desc: "Designing intuitive user interfaces and improving user experience by collaborating with architects and designers. Using Figma, Material UI, and design systems to convert requirements into visually appealing, accessible, and responsive designs."
+        }
+    ];
+
     return (
         <div
             id="service"
-            className="relative flex flex-col items-center justify-center overflow-hidden bg-[#131313] py-20"
+            className="relative flex flex-col items-center justify-center overflow-hidden bg-black py-20"
         >
-            <div className="relative z-10 text-center px-6 max-w-4xl">
-                <h3 className="text-sm uppercase tracking-widest text-gray-200 mb-2">Services</h3>
-                <h1 className="mt-4 text-4xl text-white font-bold">
-                    What <span className="text-teal-300">I do</span>
+            <div className="relative z-10 text-center px-6 max-w-6xl">
+                <h3 className="text-sm uppercase tracking-widest text-gray-400 mb-2">Services</h3>
+                <h1 className="mt-4 text-4xl text-white font-bold mb-16">
+                    What <span className="text-teal-400">I do</span>.
                 </h1>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mt-8">
-                    {[
-                        {
-                            title: "Full Stack Development",
-                            desc: "Crafting scalable web applications with Angular, Node.js, and RESTful APIs using clean architecture and micro frontend design.",
-                        },
-                        {
-                            title: "State Management & Optimization",
-                            desc: "Implementing NgRx and Redux patterns to handle complex workflows, enhance performance, and improve app scalability.",
-                        },
-                        {
-                            title: "CMS & SEO Integration",
-                            desc: "Integrating headless CMS platforms (like Kontent AI) and applying SEO strategies to boost online visibility and content flexibility.",
-                        },
-                    ].map((service, index) => (
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {services.map((service, index) => (
                         <div
                             key={index}
-                            className="bg-[#262626] p-6 rounded-lg border border-teal-200 shadow-lg hover:border-teal-400 hover:shadow-teal-500/30 transition-all duration-300 cursor-pointer"
+                            onClick={() => setActiveCard(index)}
+                            className={`
+                                relative p-8 rounded-2xl cursor-pointer transition-all duration-300 border-2
+                                ${activeCard === index 
+                                    ? 'bg-gradient-to-br from-teal-400 to-cyan-500 border-teal-400 text-black' 
+                                    : 'bg-gray-800 border-gray-700 text-white hover:border-gray-600 hover:bg-gray-750'
+                                }
+                            `}
                         >
-                            <h3 className="text-xl font-semibold text-teal-400">{service.title}</h3>
-                            <p className="mt-4 text-gray-300">{service.desc}</p>
+                            <div className={`
+                                absolute top-6 right-6 w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold
+                                ${activeCard === index 
+                                    ? 'bg-black/20 text-black/70' 
+                                    : 'bg-gray-700 text-gray-500'
+                                }
+                            `}>
+                                0{index + 1}
+                            </div>
+
+                            <div className={`
+                                mb-6 
+                                ${activeCard === index ? 'text-black' : 'text-gray-400'}
+                            `}>
+                                {service.icon}
+                            </div>
+
+                            <h3 className={`
+                                text-xl font-bold mb-4 text-left
+                                ${activeCard === index ? 'text-black' : 'text-white'}
+                            `}>
+                                {service.title}
+                            </h3>
+
+                            <div className={`
+                                w-12 h-0.5 mb-4
+                                ${activeCard === index ? 'bg-black/30' : 'bg-gray-600'}
+                            `}></div>
+
+                            <p className={`
+                                text-left leading-relaxed
+                                ${activeCard === index ? 'text-black/80' : 'text-gray-300'}
+                            `}>
+                                {service.desc}
+                            </p>
                         </div>
                     ))}
                 </div>
@@ -38,3 +99,5 @@ export const Service = () => {
         </div>
     );
 };
+
+export default Service;

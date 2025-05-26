@@ -5,8 +5,10 @@ import "./index.css";
 import { Navbar } from "./components/Navbar";
 import { Home } from "./components/sections/Home";
 import { Service } from "./components/sections/Service";
+
 import { Project } from "./components/sections/Project";
 import { About } from "./components/sections/About";
+import { Footer} from "./components/Footer"
 
 export const App = () => {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -24,6 +26,7 @@ export const App = () => {
         <Service />
         <Project />
         <About />
+        <Footer />
       </div>
     </>
   );
